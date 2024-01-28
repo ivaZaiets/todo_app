@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { actions } from '../features/todos/TodosSlice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { actions } from '../../features/todos/TodosSlice';
 import EditTodo from '../EditTodo/EditTodo';
 import { Todo } from '../../types/Todo';
 import cn from 'classnames';
@@ -25,7 +25,7 @@ const TodoList: React.FC<Props> = ({ todos }) => {
     <>
       {todos.map((todo) => {
         return (
-          <div className={styles.todo}>
+          <div key={todo.id} className={styles.todo}>
             <div
               className={cn(styles.todo__incompleted, {
                 [styles.todo__completed]: todo.completed,

@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .todo {
   position: relative;
 
@@ -20,14 +22,23 @@
   &__title {
     width: 300px;
     min-height: 40px;
+    margin: 0 auto 25px;
+    padding: 7px 20px;
+    font-size: 20px;
     border-radius: 13px;
     border: 1px solid rgba(82, 49, 34, 0.568);
-    margin: 0 auto 25px;
-    background-color: #a48356b9;
-    font-size: 20px;
     color: #fff;
-    padding: 7px 20px;
+    background-color: #a48356b9;
     overflow-wrap: break-word;
+
+    @include betweenTabletAndMobile {
+      width: 50vw;
+    }
+
+    @media (max-width: 540px) {
+      margin-right: 12px;
+      margin-left: 12px;
+    }
 
     &_completed {
       color: #ffffff71;

@@ -1,26 +1,23 @@
 /*eslint-disable*/
 
 import { createSlice } from '@reduxjs/toolkit';
-import { Todo } from '../../../types/Todo';
+import { Todo } from '../../types/Todo';
 
 const savedTodos = localStorage.getItem('todos');
-let initialTodos = savedTodos ? JSON.parse(savedTodos) : []
-
-// if(savedTodos) {
-//   initialTodos = JSON.parse(savedTodos)
-// }
-
+let initialTodos = savedTodos ? JSON.parse(savedTodos) : [];
 
 export interface TodosState {
   todos: Todo[];
   editedTodo: Todo | null;
   todoStatus: string;
+  isClicked: string;
 }
 
 const initialState: TodosState = {
   todos: initialTodos,
   editedTodo: null,
   todoStatus: '',
+  isClicked: '',
 };
 
 const TodosSlice = createSlice({
@@ -37,8 +34,14 @@ const TodosSlice = createSlice({
       return {
         ...state,
         todos: state.todos.filter((todo) => {
-          return todo.id !== action.payload
+          return todo.id !== action.payload;
         }),
+      };
+    },
+    removeAllTodos: (state) => {
+      return {
+        ...state,
+        todos: [],
       };
     },
     setCompletedTodo: (state, action) => {
@@ -86,16 +89,16 @@ const TodosSlice = createSlice({
         editedTodo: action.payload,
       };
     },
-    removeAllTodos: (state) => {
-      return {
-        ...state,
-        todos: [],
-      };
-    },
     setTodoStatus: (state, action) => {
       return {
         ...state,
         todoStatus: action.payload,
+      };
+    },
+    setIsClicked: (state, action) => {
+      return {
+        ...state,
+        isClicked: action.payload,
       };
     },
   },

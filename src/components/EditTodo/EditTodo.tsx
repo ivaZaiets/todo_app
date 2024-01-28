@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { useAppDispatch } from '../app/hooks';
-import { actions } from '../features/todos/TodosSlice';
+import { useAppDispatch } from '../../store/hooks';
+import { actions } from '../../features/todos/TodosSlice';
 import { Todo } from '../../types/Todo';
 import styles from './EditTodo.module.scss';
 
@@ -63,13 +63,7 @@ const EditTodo: React.FC<Props> = ({ todo }) => {
 
   return (
     <form className={styles.todo} onSubmit={editTodo}>
-      {error.current && (
-        <div className={styles.todo__error}>
-          <p className={styles.todo__error_message}>
-            Max length: 130 characters
-          </p>
-        </div>
-      )}
+      {error.current && <div className={styles.todo__max_length_error}></div>}
 
       <textarea
         id="text"
@@ -81,7 +75,6 @@ const EditTodo: React.FC<Props> = ({ todo }) => {
         onKeyUp={onEnter}
         maxLength={130}
       />
-      
     </form>
   );
 };

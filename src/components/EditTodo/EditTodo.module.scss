@@ -1,8 +1,16 @@
+@import '../../styles/mixins.scss';
+
+@mixin OnMobile {
+  @media (max-width: 550px) {
+    @content;
+  }
+}
+
 .todo {
   display: flex;
   justify-content: center;
 
-  &__error {
+  &__max_length_error {
     background-image: url('../../../public/error-detail.svg');
     background-size: 100%;
     background-repeat: no-repeat;
@@ -13,13 +21,10 @@
     right: -15%;
     z-index: 2;
 
-    &_message {
-      width: 80%;
-      margin: 15px auto;
-      font-size: 18px;
-      font-weight: 800;
-      color: #a48356;
-      text-align: center;
+    @include OnMobile {
+      width: 48%;
+      bottom: 65%;
+      right: -10%;
     }
   }
 
@@ -29,16 +34,25 @@
     margin: 0 auto 25px;
     padding: 7px 20px;
     font-size: 20px;
-    color: #fff;
     border-radius: 13px;
     border: 1px solid rgba(82, 49, 34, 0.568);
+    color: #fff;
     background-color: #a48356b9;
     resize: none;
 
+    @include betweenTabletAndMobile {
+      width: 50vw;
+    }
+
+    @include OnMobile {
+      margin-right: 12px;
+      margin-left: 12px;
+    }
+
     &:focus {
-      background-color: #a4835673;
-      color: #ffffff9f;
       font-family: 'Montserrat', sans-serif;
+      color: #ffffff9f;
+      background-color: #a4835673;
       outline: none;
       border: 1px solid #fff;
     }

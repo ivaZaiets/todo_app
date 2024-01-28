@@ -3,3 +3,9 @@
     @content;
   }
 }
+
+@mixin betweenTabletAndMobile {
+  @media (max-width: 710px) {
+    @content;
+  }
+}

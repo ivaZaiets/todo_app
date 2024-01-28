@@ -1,6 +1,6 @@
-import './App.scss';
 import ExtendedOptions from './components/ExtendedOptions/ExtendedOptions';
 import TodoForm from './components/TodoForm/TodoForm';
+import './App.scss';
 
 const App = () => {
   return (

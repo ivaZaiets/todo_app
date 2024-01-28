@@ -1,77 +1,187 @@
 @import '../../styles/mixins.scss';
 
+@mixin OnMobile {
+  @media (max-width: 450px) {
+    @content;
+  }
+}
+
 .container {
-  position: relative;
   height: 320px;
+  margin-bottom: 40px;
+  position: relative;
+
+  @include betweenTabletAndMobile {
+    margin-bottom: 80px;
+  }
+
+  @include OnMobile {
+    margin-bottom: 40px;
+  }
 
   .todo_form {
-    margin-top: 160px;
     width: 500px;
     min-height: 230px;
-    background: #d1b991;
-    border-radius: 40px;
+    margin-top: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 40px;
+    background: #d1b991;
 
     @include onTablet {
-      margin: 20px auto;
+      margin: 80px auto;
     }
 
-    &__error {
-      background-image: url('./error-detail.svg');
+    @include betweenTabletAndMobile {
+      width: 80%;
+      margin: 140px auto;
+    }
+
+    @include OnMobile {
+      min-height: 180px;
+      border-radius: 25px;
+    }
+
+    &__max_length_error {
+      background-image: url('../../../public/error-detail.svg');
       background-size: 100%;
       background-repeat: no-repeat;
       width: 160px;
       height: 108px;
       position: absolute;
-      bottom: -3%;
-      left: 32%;
+      margin-top: 85px;
+      margin-left: 220px;
       z-index: 2;
 
-      &_message {
-        color: #a48356;
-        font-size: 18px;
-        text-align: center;
-        width: 80%;
-        margin: 15px auto;
-        font-weight: 800;
+      @include betweenTabletAndMobile {
+        width: 25%;
+        top: 48%;
+        right: 18%;
+      }
+
+      @media (max-width: 550px) {
+        top: 50%;
+        right: 16%;
+      }
+
+      @include OnMobile {
+        top: 38%;
+        right: 16%;
+      }
+    }
+
+    &__completed_todos_error {
+      background-image: url('../../../public/completed-todos-error-background.svg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 360px;
+      height: 45px;
+      position: relative;
+      margin-bottom: 26px;
+
+      @include betweenTabletAndMobile {
+        width: 58vw;
+        height: 55px;
+      }
+
+      @include OnMobile {
+        width: 68vw;
+        margin-bottom: 0px;
+      }
+    }
+
+    &__active_todos_error {
+      background-image: url('../../../public/active-todos-error-background.svg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 320px;
+      height: 50px;
+      position: relative;
+      margin-bottom: 16px;
+
+      @include betweenTabletAndMobile {
+        width: 48vw;
+        height: 45px;
+      }
+
+      @include OnMobile {
+        width: 58vw;
+        margin-bottom: 0px;
       }
     }
 
     &__img {
+      background-image: url('../../../public/detail-1.png');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 560px;
+      height: 380px;
       position: absolute;
       bottom: -30%;
       left: 7%;
-      width: 560px;
 
       @include onTablet {
-        display: none;
+        width: 480px;
+        bottom: -10%;
+        left: 33%;
+      }
+
+      @include betweenTabletAndMobile {
+        background-image: url('../../../public/detail-1-tablet.png');
+        width: 550px;
+        height: 200px;
+        bottom: 20%;
+        left: 0%;
+        transform: rotate(-5deg);
+      }
+
+      @media (max-width: 550px) {
+        width: 450px;
+        bottom: 15%;
+      }
+
+      @include OnMobile {
+        background-image: url('../../../public/detail-1-mobile.png');
+        width: 300px;
+        bottom: 20%;
       }
     }
 
     &__title {
       margin: 100px 0 15px;
+      font-size: 35px;
       color: #523122d0;
       text-align: center;
-      font-size: 35px;
+
+      @include betweenTabletAndMobile {
+        font-size: 7vw;
+      }
+
+      @include OnMobile {
+        margin-top: 65px;
+      }
     }
 
     &__field {
       width: 300px;
       height: 40px;
-      border-radius: 13px;
-      border: 1px solid rgba(82, 49, 34, 0.568);
-      align-self: center;
-      background-color: #ffffffda;
       margin-bottom: 20px;
+      padding-left: 20px;
+      align-self: center;
       font-family: 'Montserrat', sans-serif;
       font-size: 18px;
-      color: #523122be;
       font-weight: 600;
-      padding-left: 20px;
+      border-radius: 13px;
+      border: 1px solid rgba(82, 49, 34, 0.568);
       outline: none;
+      color: #523122be;
+      background-color: #ffffffda;
       z-index: 0;
+
+      @include betweenTabletAndMobile {
+        width: 100%;
+      }
 
       &::placeholder {
         font-family: 'Montserrat', sans-serif;

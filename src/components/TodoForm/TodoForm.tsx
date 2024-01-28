@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { actions } from '../features/todos/TodosSlice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { actions } from '../../features/todos/TodosSlice';
 import TodoList from '../TodoList/TodoList';
 import { Todo } from '../../types/Todo';
-import { TodoStatus } from '../helpers/TodoStatusEnum';
+import { TodoStatus } from '../../helpers/TodoStatusEnum';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './TodoForm.module.scss';
 
 const TodoForm = () => {
   const dispatch = useAppDispatch();
-  const { todos, todoStatus } = useAppSelector((state) => state.todos);
+  const { todos, todoStatus, isClicked } = useAppSelector(
+    (state) => state.todos,
+  );
 
   const inputFocus = useRef<HTMLInputElement | null>(null);
 
@@ -48,33 +50,29 @@ const TodoForm = () => {
 
   let todosCopy = [...todos];
 
-  if (todoStatus === TodoStatus.Completed) {
-    todosCopy = todosCopy.filter((todo) => todo.completed);
-  } else if (todoStatus === TodoStatus.Active) {
-    todosCopy = todosCopy.filter((todo) => !todo.completed);
-  } else {
-    todosCopy;
+  switch (todoStatus) {
+    case TodoStatus.Completed:
+      todosCopy = todosCopy.filter((todo) => todo.completed);
+      break;
+
+    case TodoStatus.Active:
+      todosCopy = todosCopy.filter((todo) => !todo.completed);
+      break;
+
+    default:
+      todosCopy;
   }
 
   return (
     <div className={styles.container}>
       <div className={styles.todo_form}>
-        {error && (
-          <div className={styles.todo_form__error}>
-            <p className={styles.todo_form__error_message}>
-              Max length: 130 characters
-            </p>
-          </div>
-        )}
+        {error && <div className={styles.todo_form__max_length_error}></div>}
 
-        <img
-          className={styles.todo_form__img}
-          src="./detail-1.png"
-          alt="flowers"
-        />
-        
+        <div className={styles.todo_form__img} />
+
         <form style={{ zIndex: 1 }} onSubmit={addTodos}>
           <h1 className={styles.todo_form__title}>Master Your Day</h1>
+          
           <input
             type="text"
             className={styles.todo_form__field}
@@ -88,6 +86,16 @@ const TodoForm = () => {
             ref={inputFocus}
           />
         </form>
+
+        {todos.every((todo) => !todo.completed) &&
+          isClicked === TodoStatus.Completed && (
+            <div className={styles.todo_form__completed_todos_error}></div>
+          )}
+
+        {todos.every((todo) => todo.completed) &&
+          isClicked === TodoStatus.Active && (
+            <div className={styles.todo_form__active_todos_error}></div>
+          )}
 
         <TodoList todos={todosCopy} />
       </div>
