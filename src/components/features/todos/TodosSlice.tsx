@@ -4,6 +4,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Todo } from '../../../types/Todo';
 
 const savedTodos = localStorage.getItem('todos');
+let initialTodos = []
+
+if(savedTodos) {
+  initialTodos = JSON.parse(savedTodos)
+}
 
 export interface TodosState {
   todos: Todo[];
@@ -12,7 +17,7 @@ export interface TodosState {
 }
 
 const initialState: TodosState = {
-  todos: savedTodos ? JSON.parse(savedTodos) : [],
+  todos: initialTodos,
   editedTodo: null,
   todoStatus: '',
 };
