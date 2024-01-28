@@ -69,7 +69,7 @@ const TodoForm = () => {
 
         <img
           className={styles.todo_form__img}
-          src="./detail-1.png"
+          src="../../../public/detail-1.png"
           alt="flowers"
         />
         
