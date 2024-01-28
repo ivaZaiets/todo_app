@@ -12,7 +12,7 @@ export interface TodosState {
 }
 
 const initialState: TodosState = {
-  todos: savedTodos && JSON.parse(savedTodos),
+  todos: savedTodos ? JSON.parse(savedTodos) : [],
   editedTodo: null,
   todoStatus: '',
 };
