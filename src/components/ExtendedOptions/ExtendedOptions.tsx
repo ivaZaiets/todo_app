@@ -18,14 +18,14 @@ const ExtendedOptions = () => {
           {todos.every((todo) => todo.completed) && todos.length !== 0 ? (
             <img
               className={styles.options__select_all_img_completed}
-              src="../../../public/completed-detail.png"
+              src="./public/completed-detail.png"
               alt="incompleted detail"
               onClick={toggleAll}
             />
           ) : (
             <img
               className={styles.options__select_all_img_incompleted}
-              src="../../../public/incompleted-detail.png"
+              src="./public/incompleted-detail.png"
               alt="incompleted detail"
               onClick={toggleAll}
             />
@@ -81,7 +81,7 @@ const ExtendedOptions = () => {
 
       <img 
         className={styles.line} 
-        src="../../../public/line.svg" 
+        src="./public/line.svg" 
         alt="line" 
       />
     </div>
