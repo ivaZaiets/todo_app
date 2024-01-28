@@ -3,12 +3,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Todo } from '../../../types/Todo';
 
-// const savedTodos = localStorage.getItem('todos');
-// let initialTodos = []
+const savedTodos = localStorage.getItem('todos');
+let initialTodos = savedTodos ? JSON.parse(savedTodos) : []
 
 // if(savedTodos) {
 //   initialTodos = JSON.parse(savedTodos)
 // }
+
 
 export interface TodosState {
   todos: Todo[];
@@ -17,7 +18,7 @@ export interface TodosState {
 }
 
 const initialState: TodosState = {
-  todos: [],
+  todos: initialTodos,
   editedTodo: null,
   todoStatus: '',
 };
