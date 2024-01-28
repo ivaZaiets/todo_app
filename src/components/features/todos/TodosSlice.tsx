@@ -17,7 +17,7 @@ export interface TodosState {
 }
 
 const initialState: TodosState = {
-  todos: initialTodos,
+  todos: [],
   editedTodo: null,
   todoStatus: '',
 };
