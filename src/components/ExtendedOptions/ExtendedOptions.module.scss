@@ -58,7 +58,7 @@
       }
 
       &_all {
-        background-image: url('./all-background.png');
+        background-image: url('./public/all-background.png');
         background-repeat: no-repeat;
         background-size: 100%;
         width: 60px;
@@ -77,7 +77,7 @@
       }
 
       &_completed {
-        background-image: url('./completed-background.png');
+        background-image: url('./public/completed-background.png');
         background-repeat: no-repeat;
         background-size: 100%;
         width: 180px;
@@ -96,7 +96,7 @@
       }
 
       &_active {
-        background-image: url('./active-background.png');
+        background-image: url('./public/active-background.png');
         background-repeat: no-repeat;
         background-size: 100%;
         width: 110px;
@@ -116,7 +116,7 @@
     }
 
     &__remove_all {
-      background-image: url('./remove-btn-background.png');
+      background-image: url('./public/remove-btn-background.png');
       background-repeat: no-repeat;
       background-size: 100%;
       width: 180px;
