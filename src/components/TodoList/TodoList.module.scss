@@ -1,0 +1,49 @@
+.todo {
+  position: relative;
+
+  &__incompleted {
+    background-image: url('../../../public/incompleted-detail.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 38%;
+    left: -18%;
+    cursor: pointer;
+  }
+
+  &__completed {
+    background-image: url('../../../public/completed-detail.png');
+  }
+
+  &__title {
+    width: 300px;
+    min-height: 40px;
+    border-radius: 13px;
+    border: 1px solid rgba(82, 49, 34, 0.568);
+    margin: 0 auto 25px;
+    background-color: #a48356b9;
+    font-size: 20px;
+    color: #fff;
+    padding: 7px 20px;
+    overflow-wrap: break-word;
+
+    &_completed {
+      color: #ffffff71;
+      text-decoration: line-through;
+    }
+  }
+
+  &__remove_btn {
+    background-image: url('../../../public/remove-btn.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 40%;
+    right: -16%;
+    cursor: pointer;
+  }
+}

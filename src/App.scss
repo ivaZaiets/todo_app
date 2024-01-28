@@ -1,0 +1,11 @@
+@import './styles/mixins.scss';
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  @include onTablet {
+    display: flex;
+    flex-direction: column;
+  }
+}

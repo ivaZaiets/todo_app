@@ -1,0 +1,11 @@
+/node_modules
+/tsconfig.json
+/tsconfig.node.json
+/vite.config.ts
+/package.json
+/package-lock.json
+/src/vite-env.d.ts
+/README.md 
+/.eslintrc.cjs
+/.eslintrc.json
+/.prettierrc.json

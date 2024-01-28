@@ -1,0 +1,83 @@
+@import '../../styles/mixins.scss';
+
+.container {
+  position: relative;
+  height: 320px;
+
+  .todo_form {
+    margin-top: 160px;
+    width: 500px;
+    min-height: 230px;
+    background: #d1b991;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      margin: 20px auto;
+    }
+
+    &__error {
+      background-image: url('../../../public/error-detail.svg');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      width: 160px;
+      height: 108px;
+      position: absolute;
+      bottom: -3%;
+      left: 32%;
+      z-index: 2;
+
+      &_message {
+        color: #a48356;
+        font-size: 18px;
+        text-align: center;
+        width: 80%;
+        margin: 15px auto;
+        font-weight: 800;
+      }
+    }
+
+    &__img {
+      position: absolute;
+      bottom: -30%;
+      left: 7%;
+      width: 560px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &__title {
+      margin: 100px 0 15px;
+      color: #523122d0;
+      text-align: center;
+      font-size: 35px;
+    }
+
+    &__field {
+      width: 300px;
+      height: 40px;
+      border-radius: 13px;
+      border: 1px solid rgba(82, 49, 34, 0.568);
+      align-self: center;
+      background-color: #ffffffda;
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: #523122be;
+      font-weight: 600;
+      padding-left: 20px;
+      outline: none;
+      z-index: 0;
+
+      &::placeholder {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        color: #5231228e;
+      }
+    }
+  }
+}

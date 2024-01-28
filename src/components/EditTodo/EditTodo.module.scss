@@ -1,0 +1,50 @@
+.todo {
+  display: flex;
+  justify-content: center;
+
+  &__error {
+    background-image: url('../../../public/error-detail.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 160px;
+    height: 108px;
+    position: absolute;
+    bottom: 70%;
+    right: -15%;
+    z-index: 2;
+
+    &_message {
+      width: 80%;
+      margin: 15px auto;
+      font-size: 18px;
+      font-weight: 800;
+      color: #a48356;
+      text-align: center;
+    }
+  }
+
+  &__edited_field {
+    width: 300px;
+    height: 0px;
+    margin: 0 auto 25px;
+    padding: 7px 20px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 13px;
+    border: 1px solid rgba(82, 49, 34, 0.568);
+    background-color: #a48356b9;
+    resize: none;
+
+    &:focus {
+      background-color: #a4835673;
+      color: #ffffff9f;
+      font-family: 'Montserrat', sans-serif;
+      outline: none;
+      border: 1px solid #fff;
+    }
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+  }
+}
